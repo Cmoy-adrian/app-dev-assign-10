@@ -86,6 +86,14 @@ app.get('/', (req, res) => {
 });
 
 // AUTHENTICATION ROUTES
+// GET /api/health - states that server is online
+app.get("/health", (req, res) => {
+    res.status(200).json({
+        status: "OK",
+        message: "Server is running",
+        timestamp: new Date().toISOString()
+    });
+});
 
 // POST /api/register - Register new user
 app.post('/api/register', async (req, res) => {
